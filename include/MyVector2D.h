@@ -1,5 +1,5 @@
-#ifndef MYVECTOR2D_H
-#define MYVECTOR2D_H
+#ifndef __MyVector2D__
+#define __MyVector2D__
 
 
 class MyVector2D
@@ -8,7 +8,7 @@ class MyVector2D
         double x,y;
         MyVector2D();
         MyVector2D(double x, double y);
-        MyVector2D(const MyVector2D& v);
+        //MyVector2D(const MyVector2D& v);
 
         MyVector2D add(MyVector2D v);
         MyVector2D sub(MyVector2D V);

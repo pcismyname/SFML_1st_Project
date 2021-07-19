@@ -1,7 +1,9 @@
 # depslib dependency file v1.0
-1626595522 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
+1626717508 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
+	<time.h>
+	"MyVector2D.h"
 
 1626019191 c:\sfml-2.5.1\include\sfml\window.hpp
 	<SFML/System.hpp>
@@ -524,4 +526,10 @@
 1626019191 c:\sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1626713025 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\myvector2d.cpp
+	"MyVector2D.h"
+	<cmath>
+
+1626713025 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\myvector2d.h
 
