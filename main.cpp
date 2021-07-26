@@ -1,8 +1,9 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <time.h>
-
+#include "Rect.h"
 #include "MyVector2D.h"
+#include "Ball.h"
 
 int main()
 {
@@ -18,26 +19,26 @@ int main()
     sf::ContextSettings setting = window.getSettings();
     setting.antialiasingLevel = 1000;
 
-    sf::CircleShape circle[10];
-    MyVector2D vel[10];
-    MyVector2D acc[10];
+    ///////////////////////////////////////////
 
+    Ball ball[10];
     for (int i = 0; i < 10; i++)
     {
-        vel[i].x = rand() % 10 - 5;
-        vel[i].y = rand() % 10 - 5;
-        acc[i].x = 0;
-        acc[i].y = 0.4;
-        circle[i].setPosition(rand() % window_size2.x, rand() % window_size2.y);
-        circle[i].setRadius(rand() % 115);
+        ball[i].vel.x = rand() % 10;
+        ball[i].vel.y = rand() % 10;
+        ball[i].acc.x = 0;
+        ball[i].acc.y = 0;
+        ball[i].circle.setPosition(rand() % window_size2.x, rand() % window_size2.y);
+        ball[i].circle.setRadius(rand() % 155);
+
         sf::Color color;
-        color.r = rand() % 225;
-        color.g = rand() % 225;
-        color.b = rand() % 225;
-        color.a = rand() % 155 + 100;
-        circle[i].setFillColor(color);
+        color.r = rand() % 255;
+        color.g = rand() % 255;
+        color.b = rand() % 255;
+        ball[i].circle.setFillColor(color);
     }
 
+    ///////////////////////////////////////////
     while (window.isOpen())
     {
         sf::Event event;
@@ -56,44 +57,21 @@ int main()
 
         window.clear();
 
-        ///////////////
+        /////////////////////////////////////
 
         sf::Vector2u window_size = window.getSize();
+
         for (int i = 0; i < 10; i++)
         {
-            sf::Vector2f p = circle[i].getPosition();
-            MyVector2D pos(p.x, p.y);
-            vel[i] = vel[i].add(acc[i]);
-            pos = pos + vel[i];
-
-            if (pos.x + 2 * circle[i].getRadius() > window_size.x)
-            {
-                pos.x = window_size.x - 2 * circle[i].getRadius();
-                vel[i].x *= -1;
-            }
-
-            if (pos.y + 2 * circle[i].getRadius() > window_size.y)
-            {
-                pos.y = window_size.y - 2 * circle[i].getRadius();
-                vel[i].y *= -1;
-            }
-
-            if (pos.x < 0)
-            {
-                pos.x = 0;
-                vel[i].x *= -1;
-            }
-
-            if (pos.y < 0)
-            {
-                pos.y = 0;
-                vel[i].y *= -1;
-            }
-
-            sf::Vector2f pos_now(pos.x, pos.y);
-            circle[i].setPosition(pos_now);
-            window.draw(circle[i]);
+            ball[i].move(window_size.x, window_size.y);
         }
+
+        for(int i =0; i< 10;i++)
+        {
+            ball[i].draw(&window);
+        }
+
+
         window.display();
     }
     return EXIT_SUCCESS;
