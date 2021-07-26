@@ -13,29 +13,18 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "ball ball ball", sf::Style::Default, settings);
     window.setFramerateLimit(60);
 
-    srand(time(NULL));
-    sf::Vector2u window_size2 = window.getSize();
-
     sf::ContextSettings setting = window.getSettings();
     setting.antialiasingLevel = 1000;
 
+    srand(time(NULL));
+    sf::Vector2u window_size2 = window.getSize();
+
     ///////////////////////////////////////////
 
-    Ball ball[10];
+    Ball **ball = new Ball*[10];
     for (int i = 0; i < 10; i++)
     {
-        ball[i].vel.x = rand() % 10;
-        ball[i].vel.y = rand() % 10;
-        ball[i].acc.x = 0;
-        ball[i].acc.y = 0;
-        ball[i].circle.setPosition(rand() % window_size2.x, rand() % window_size2.y);
-        ball[i].circle.setRadius(rand() % 155);
-
-        sf::Color color;
-        color.r = rand() % 255;
-        color.g = rand() % 255;
-        color.b = rand() % 255;
-        ball[i].circle.setFillColor(color);
+        ball[i] = new Ball(window_size2.x, window_size2.y);
     }
 
     ///////////////////////////////////////////
@@ -63,16 +52,23 @@ int main()
 
         for (int i = 0; i < 10; i++)
         {
-            ball[i].move(window_size.x, window_size.y);
+            ball[i]->move(window_size.x, window_size.y);
         }
 
-        for(int i =0; i< 10;i++)
+        for (int i = 0; i < 10; i++)
         {
-            ball[i].draw(&window);
+            ball[i]->draw(&window);
+        }
+
+          window.display();
+
+    }
+      for(int i=0;i<10;i++)
+        {
+            delete ball[i];
         }
 
 
-        window.display();
-    }
+    delete [] ball;
     return EXIT_SUCCESS;
 }

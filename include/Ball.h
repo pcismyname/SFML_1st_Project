@@ -11,8 +11,10 @@ public:
     MyVector2D vel;
     MyVector2D acc;
 
+    Ball(int window_width,int window_height);
+
     void draw(sf::RenderWindow * window);
-    void draw(sf::RenderWindow& wimdow);
+    void draw(sf::RenderWindow& window);
     void move(int window_width,int window_height);
 };
 #endif // BALL_H

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1627293461 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
+1627296334 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
 	<time.h>
@@ -545,7 +545,7 @@
 	"MyVector2D.h"
 	"Rect.h"
 
-1627292825 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\ball.h
+1627295663 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\ball.h
 	<SFML/Graphics.hpp>
 	"MyVector2D.h"
 
@@ -555,7 +555,7 @@
 	"MyVector2D.h"
 	"Rect.h"
 
-1627293359 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\ball.cpp
+1627295795 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\ball.cpp
 	"Ball.h"
 	<SFML/Graphics.hpp>
 

@@ -53,7 +53,7 @@
 			<Add library="C:/Users/chids/OneDrive/Desktop/SFML/lib/libsfml-window.a" />
 			<Add directory="C:/Users/chids/OneDrive/Desktop/SFML/lib" />
 		</Linker>
-		<Unit filename="SFML_window.cpp" />
+		<Unit filename="include/Ball.h" />
 		<Unit filename="include/MyVector2D.h" />
 		<Unit filename="include/Rect.h" />
 		<Unit filename="main.cpp" />

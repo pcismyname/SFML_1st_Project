@@ -1,6 +1,24 @@
 #include "Ball.h"
 #include<SFML/Graphics.hpp>
 
+Ball::Ball(int window_width,int window_height)
+{
+        vel.x = rand() % 10-5;
+        vel.y = rand() % 10-5;
+        acc.x = 0;
+        acc.y = 0.4;
+        circle.setPosition(rand() % window_width, rand() % window_height);
+        circle.setRadius(rand() % 155);
+
+        sf::Color color;
+        color.r = rand() % 255;
+        color.g = rand() % 255;
+        color.b = rand() % 255;
+        circle.setFillColor(color);
+}
+
+
+
 void Ball::draw(sf::RenderWindow& window)
 {
     window.draw(this->circle);
