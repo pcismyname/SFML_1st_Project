@@ -4,7 +4,7 @@
 #include "Rect.h"
 #include "MyVector2D.h"
 #include "Ball.h"
-
+#include "Star.h"
 #define N 5
 
 
@@ -13,7 +13,7 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "ball ball ball", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(800, 600), "yrp", sf::Style::Default, settings);
     window.setFramerateLimit(60);
 
     sf::ContextSettings setting = window.getSettings();
@@ -34,6 +34,12 @@ int main()
     for (int i = 0; i < N; i++)
     {
         rect[i] = new Rect(window_size2.x, window_size2.y);
+    }
+
+    Star **star = new Star *[N];
+    for (int i = 0; i < N; i++)
+    {
+        star[i] = new Star(window_size2.x, window_size2.y);
     }
 
     ///////////////////////////////////////////
@@ -77,6 +83,16 @@ int main()
         for (int i = 0; i < N; i++)
         {
             rect[i]->draw(&window);
+        }
+
+        for (int i = 0; i < N; i++)
+        {
+            star[i]->move(window_size.x, window_size.y);
+        }
+
+        for (int i = 0; i < N; i++)
+        {
+            star[i]->draw(&window);
         }
 
         window.display();

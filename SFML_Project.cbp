@@ -60,6 +60,7 @@
 		<Unit filename="src/Ball.cpp" />
 		<Unit filename="src/MyVector2D.cpp" />
 		<Unit filename="src/Rectangle.cpp" />
+		<Unit filename="src/Star.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

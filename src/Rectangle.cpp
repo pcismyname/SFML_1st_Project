@@ -9,7 +9,7 @@ Rect::Rect(int window_width,int window_height)
     vel.x =rand()%10-5;
     vel.y = rand()%10-5;
     acc.x = 0;
-    acc.y = 0.4;
+    acc.y = 0;
     rect.setPosition( rand()%window_width, rand()%window_height);
     sf::Vector2f size((rand()%155), (rand()%155));
     rect.setSize(size);
