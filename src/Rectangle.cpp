@@ -18,6 +18,7 @@ Rect::Rect(int window_width,int window_height)
     color.r = rand()%255;
     color.g = rand()%255;
     color.b = rand()%255;
+    rect.setFillColor(color);
 }
 
 void Rect::draw(sf::RenderWindow* window)
@@ -37,16 +38,16 @@ void Rect::move(int window_width,int window_height)
     vel = vel.add(acc);
     pos = pos + vel ;
 
-    if(pos.x + 2*rect.getSize().x > window_width)
+    if(pos.x + rect.getSize().x > window_width)
     {
-        pos.x = window_width - 2* rect.getSize().x;
+        pos.x = window_width -  rect.getSize().x;
         vel.x *= -1;
 
     }
 
-     if(pos.y + 2*rect.getSize().y > window_height)
+     if(pos.y + rect.getSize().y > window_height)
     {
-        pos.y = window_height - 2* rect.getSize().y;
+        pos.y = window_height -  rect.getSize().y;
         vel.y *= -1;
 
     }

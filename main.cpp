@@ -5,6 +5,9 @@
 #include "MyVector2D.h"
 #include "Ball.h"
 
+#define N 5
+
+
 int main()
 {
     sf::ContextSettings settings;
@@ -21,10 +24,16 @@ int main()
 
     ///////////////////////////////////////////
 
-    Ball **ball = new Ball*[10];
-    for (int i = 0; i < 10; i++)
+    Ball **ball = new Ball *[N];
+    for (int i = 0; i < N; i++)
     {
         ball[i] = new Ball(window_size2.x, window_size2.y);
+    }
+
+    Rect **rect = new Rect *[N];
+    for (int i = 0; i < N; i++)
+    {
+        rect[i] = new Rect(window_size2.x, window_size2.y);
     }
 
     ///////////////////////////////////////////
@@ -46,29 +55,48 @@ int main()
 
         window.clear();
 
-        /////////////////////////////////////
+        ///////////////////////////////////////////////////
 
         sf::Vector2u window_size = window.getSize();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < N; i++)
         {
             ball[i]->move(window_size.x, window_size.y);
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < N; i++)
         {
             ball[i]->draw(&window);
         }
 
-          window.display();
-
-    }
-      for(int i=0;i<10;i++)
+        for (int i = 0; i < N; i++)
         {
-            delete ball[i];
+            rect[i]->move(window_size.x, window_size.y);
         }
 
+        for (int i = 0; i < N; i++)
+        {
+            rect[i]->draw(&window);
+        }
 
-    delete [] ball;
+        window.display();
+    }
+
+    ///////////////////////////////////////////////////////////
+
+    for (int i = 0; i < N; i++)
+    {
+        delete ball[i];
+    }
+
+    delete[] ball;
+
+    for (int i = 0; i < N; i++)
+    {
+        delete rect[i];
+    }
+
+    delete[] rect;
+
     return EXIT_SUCCESS;
 }
