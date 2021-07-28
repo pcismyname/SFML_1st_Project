@@ -13,7 +13,7 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "yrp", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "yrp", sf::Style::Default, settings);
     window.setFramerateLimit(60);
 
     sf::ContextSettings setting = window.getSettings();

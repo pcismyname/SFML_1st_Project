@@ -3,48 +3,51 @@
 
 Ball::Ball(int window_width,int window_height)
 {
+        shape = new sf::CircleShape();
         vel.x = rand() % 10-5;
         vel.y = rand() % 10-5;
         acc.x = 0;
         acc.y = 0;
-        circle.setPosition(rand() % window_width, rand() % window_height);
-        circle.setRadius(rand() % 155);
+        shape->setPosition(rand() % window_width, rand() % window_height);
+        size = rand()%200;
+        ((sf::CircleShape*)shape)->setRadius(size/2);
+
 
         sf::Color color;
         color.r = rand() % 255;
         color.g = rand() % 255;
         color.b = rand() % 255;
-        circle.setFillColor(color);
+        shape->setFillColor(color);
 }
 
 
 
 void Ball::draw(sf::RenderWindow& window)
 {
-    window.draw(this->circle);
+    window.draw(*this->shape);
 }
 
 void Ball::draw(sf::RenderWindow* window)
 {
-    window->draw(this->circle);
+    window->draw(*this->shape);
 }
 
 void Ball::move(int window_width, int window_height)
 {
-    sf::Vector2f p = circle.getPosition();
+    sf::Vector2f p = shape->getPosition();
     MyVector2D pos(p.x,p.y);
     vel = vel.add(acc); //vel[i] + acc[i]
     pos = pos + vel;
 
-    if(pos.x + 2*circle.getRadius() > window_width)
+    if(pos.x + size > window_width)
     {
-        pos.x = window_width - 2* circle.getRadius();
+        pos.x = window_width - size;
         vel.x *= -1;
     }
 
-    if(pos.y + 2*circle.getRadius() > window_height)
+    if(pos.y + size > window_height)
     {
-        pos.y = window_height - 2* circle.getRadius();
+        pos.y = window_height - size;
         vel.y *= -1;
     }
 
@@ -61,5 +64,5 @@ void Ball::move(int window_width, int window_height)
     }
 
     sf::Vector2f pos_now(pos.x,pos.y);
-    circle.setPosition(pos_now);
+   shape->setPosition(pos_now);
 }

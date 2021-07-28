@@ -7,10 +7,10 @@
 class Ball
 {
 public:
-    sf::CircleShape circle;
+    sf::Shape* shape;
     MyVector2D vel;
     MyVector2D acc;
-
+    int size;
     Ball(int window_width,int window_height);
 
     void draw(sf::RenderWindow * window);
