@@ -24,22 +24,22 @@ int main()
 
     ///////////////////////////////////////////
 
-    Ball **ball = new Ball *[N];
-    for (int i = 0; i < N; i++)
+    Ball **ball = new Ball *[30];
+    for (int i = 0; i < 10; i++)
     {
         ball[i] = new Ball(window_size2.x, window_size2.y);
     }
 
-    Rect **rect = new Rect *[N];
-    for (int i = 0; i < N; i++)
+   
+    for (int i = 10; i < 20; i++)
     {
-        rect[i] = new Rect(window_size2.x, window_size2.y);
+        ball[i] = new Rect(window_size2.x, window_size2.y);
     }
 
-    Star **star = new Star *[N];
-    for (int i = 0; i < N; i++)
+   
+    for (int i = 20; i < 30; i++)
     {
-        star[i] = new Star(window_size2.x, window_size2.y);
+        ball[i] = new Star(window_size2.x, window_size2.y);
     }
 
     ///////////////////////////////////////////
@@ -65,62 +65,31 @@ int main()
 
         sf::Vector2u window_size = window.getSize();
 
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < N*3; i++)
         {
             ball[i]->move(window_size.x, window_size.y);
         }
 
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < N*3; i++)
         {
             ball[i]->draw(&window);
         }
 
-        for (int i = 0; i < N; i++)
-        {
-            rect[i]->move(window_size.x, window_size.y);
-        }
-
-        for (int i = 0; i < N; i++)
-        {
-            rect[i]->draw(&window);
-        }
-
-        for (int i = 0; i < N; i++)
-        {
-            star[i]->move(window_size.x, window_size.y);
-        }
-
-        for (int i = 0; i < N; i++)
-        {
-            star[i]->draw(&window);
-        }
+       
 
         window.display();
     }
 
     ///////////////////////////////////////////////////////////
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 30; i++)
     {
         delete ball[i];
     }
 
     delete [] ball;
 
-    for (int i = 0; i < N; i++)
-    {
-        delete rect[i];
-    }
-
-    delete [] rect;
-
-
-    for (int i = 0; i < N; i++)
-    {
-        delete star[i];
-    }
-
-    delete [] star;
+  
 
     return EXIT_SUCCESS;
 }
