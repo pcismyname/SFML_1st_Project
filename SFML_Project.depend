@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1627405004 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
+1627528309 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\main.cpp
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
 	<time.h>
@@ -536,9 +536,10 @@
 
 1626713025 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\myvector2d.h
 
-1627030823 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\rect.h
+1627525868 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\rect.h
 	<SFML/Graphics.hpp>
 	"MyVector2D.h"
+	"Ball.h"
 
 1627288599 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\rectangle.cpp
 	<SFML/Graphics.hpp>
@@ -546,25 +547,23 @@
 	"MyVector2D.h"
 	"Rect.h"
 
-1627295663 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\ball.h
+1627522133 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\ball.h
 	<SFML/Graphics.hpp>
 	"MyVector2D.h"
 
-1627401628 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\rectangle.cpp
-	<SFML/Graphics.hpp>
-	<time.h>
-	"MyVector2D.h"
+1627527891 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\rectangle.cpp
 	"Rect.h"
 
-1627401622 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\ball.cpp
+1627527571 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\ball.cpp
 	"Ball.h"
 	<SFML/Graphics.hpp>
 
-1627404546 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\star.h
+1627523255 c:\users\chids\onedrive\desktop\test_sfml\sfml_project\include\star.h
 	<SFML/Graphics.hpp>
 	"MyVector2D.h"
+	"Ball.h"
 
-1627404397 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\star.cpp
+1627528377 source:c:\users\chids\onedrive\desktop\test_sfml\sfml_project\src\star.cpp
 	"Star.h"
 	<cmath>
 

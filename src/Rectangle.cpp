@@ -1,69 +1,69 @@
-#include <SFML/Graphics.hpp>
-#include <time.h>
-#include "MyVector2D.h"
 
 #include "Rect.h"
 
-Rect::Rect(int window_width,int window_height)
+Rect::Rect(int window_width, int window_height) : Ball(window_width, window_height)
 {
-    vel.x =rand()%10-5;
-    vel.y = rand()%10-5;
-    acc.x = 0;
-    acc.y = 0;
-    rect.setPosition( rand()%window_width, rand()%window_height);
-    sf::Vector2f size((rand()%155), (rand()%155));
-    rect.setSize(size);
+    N = 1;
+    shape = new sf::Shape*[N];
+    shape[0] = new sf::RectangleShape();
+    
+    sf::Vector2f sizexx(this->size, this->size);
+    ((sf::RectangleShape *)shape[0])->setSize(sizexx);
 
-    sf::Color color;
-    color.r = rand()%255;
-    color.g = rand()%255;
-    color.b = rand()%255;
-    rect.setFillColor(color);
+    shape[0]->setPosition(pos.x, pos.y);
+    shape[0]->setFillColor(color);
 }
 
-void Rect::draw(sf::RenderWindow* window)
+void Rect::move(int window_width, int window_height)
 {
-    window->draw(this->rect);
-}
+    vel = vel.add(acc); //vel[i] + acc[i]
+    pos = pos + vel;
+    bool isCollision = false;
 
-void Rect::draw(sf::RenderWindow& window)
-{
-    window.draw(this->rect);
-}
-
-void Rect::move(int window_width,int window_height)
-{
-    sf::Vector2f p = rect.getPosition();
-    MyVector2D pos(p.x,p.y);
-    vel = vel.add(acc);
-    pos = pos + vel ;
-
-    if(pos.x + rect.getSize().x > window_width)
+    if (pos.x + size > window_width)
     {
-        pos.x = window_width -  rect.getSize().x;
+        pos.x = window_width - size;
         vel.x *= -1;
-
+        isCollision = true;
     }
 
-     if(pos.y + rect.getSize().y > window_height)
+    if (pos.y + size > window_height)
     {
-        pos.y = window_height -  rect.getSize().y;
+        pos.y = window_height - size;
         vel.y *= -1;
-
+        isCollision = true;
     }
 
-    if (pos.x<0)
+    if (pos.x < 0)
     {
-        pos.x =0;
+        pos.x = 0;
         vel.x *= -1;
+        isCollision = true;
     }
 
-    if(pos.y<0)
+    if (pos.y < 0)
     {
-        pos.y =0;
+        pos.y = 0;
         vel.y *= -1;
+        isCollision = true;
     }
 
-    sf::Vector2f pos_now(pos.x,pos.y);
-    rect.setPosition(pos_now);
+    sf::Vector2f pos_now(pos.x, pos.y);
+  for (int i = 0; i < N; i++)
+        {
+            shape[i]->setPosition(pos_now);
+        }
+
+    if (isCollision)
+    {
+        sf::Color color;
+        color.r = rand() % 255;
+        color.g = rand() % 255;
+        color.b = rand() % 255;
+        shape[0]->setFillColor(color);
+        for (int i = 0; i < N; i++)
+        {
+            shape[i]->setFillColor(color);
+        }
+    }
 }
