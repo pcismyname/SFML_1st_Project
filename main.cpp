@@ -5,7 +5,7 @@
 #include "MyVector2D.h"
 #include "Ball.h"
 #include "Star.h"
-#define N 5
+#define N 10
 
 
 int main()
@@ -13,7 +13,7 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "yrp", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "shape everywhere !!!!!!!!!", sf::Style::Default, settings);
     window.setFramerateLimit(60);
 
     sf::ContextSettings setting = window.getSettings();
@@ -105,14 +105,22 @@ int main()
         delete ball[i];
     }
 
-    delete[] ball;
+    delete [] ball;
 
     for (int i = 0; i < N; i++)
     {
         delete rect[i];
     }
 
-    delete[] rect;
+    delete [] rect;
+
+
+    for (int i = 0; i < N; i++)
+    {
+        delete star[i];
+    }
+
+    delete [] star;
 
     return EXIT_SUCCESS;
 }

@@ -7,7 +7,9 @@
 class Rect : public Ball
 {
 public:
-    Rect(int window_width, int window_height);    
+    Rect(int window_width, int window_height);
+    void move(int window_width, int window_height);
+
 };
 
 #endif /*  defined(__testSFML__Rect__)*/
